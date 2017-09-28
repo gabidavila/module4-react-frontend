@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import LocationFilter from './components/locations/Filter';
 
 class App extends Component {
   render() {
     return (
-      <p>hi there</p>
+      <div>
+      <LocationFilter />
+      </div>
     );
   }
 }
