@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import LocationFilter from './components/locations/Filter';
+import ConferencesContainer from './components/ConferencesContainer';
 
 class App extends Component {
   render() {
     return (
       <div>
-      <LocationFilter />
+        <ConferencesContainer />
       </div>
     );
   }
