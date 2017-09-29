@@ -39,17 +39,14 @@ class LocationFilter extends React.Component {
   }
 
   onSelectChange() {
-    console.log("Hi too");
     this.props.onFilterChange({city_id: this.state.currentCity, state: this.state.currentState });
   }
 
   render() {
     return(
       <div>
-        <Form>
-          <LocationState states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
-          <LocationCity locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
-        </Form>
+        <LocationState required={this.props.required} states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
+        <LocationCity required={this.props.required} locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
       </div>
     );
   }

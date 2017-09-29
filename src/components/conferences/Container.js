@@ -4,6 +4,7 @@ import LocationFilter from '../locations/Filter';
 import ConferencesList from './List';
 import { getConferences } from "../../adapters/conferences";
 import ConferenceShow from './Show';
+import { Form } from 'semantic-ui-react';
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -20,7 +21,6 @@ class ConferencesContainer extends React.Component {
   }
 
   fetchConferences = (filters) => {
-    console.log("Hi");
     getConferences(filters)
       .then((conferences) => this.setState({
         conferences
@@ -39,7 +39,9 @@ class ConferencesContainer extends React.Component {
       <div>
       <Route exact path="/conferences" render={(props) =>
           <div>
-            <LocationFilter {...props} onFilterChange={this.handleChange} />
+            <Form>
+              <LocationFilter required={false} {...props} onFilterChange={this.handleChange} />
+            </Form>
             <ConferencesList {...props} conferences={this.state.conferences} />
           </div>
       } />
