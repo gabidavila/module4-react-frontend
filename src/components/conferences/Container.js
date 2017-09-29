@@ -5,6 +5,7 @@ import ConferencesList from './List';
 import { getConferences } from "../../adapters/conferences";
 import ConferenceShow from './Show';
 import { Form } from 'semantic-ui-react';
+import ConferenceNew from "./New";
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -32,30 +33,31 @@ class ConferencesContainer extends React.Component {
   };
 
 
-
   render() {
     console.log("conferences", this.state.conferences);
-    return(
+    return (
       <div>
-      <Route exact path="/conferences" render={(props) =>
+        <Route exact path="/conferences" render={(props) =>
           <div>
             <Form>
-              <LocationFilter required={false} {...props} onFilterChange={this.handleChange} />
+              <LocationFilter required={false} {...props} onFilterChange={this.handleChange}/>
             </Form>
-            <ConferencesList {...props} conferences={this.state.conferences} />
+            <ConferencesList {...props} conferences={this.state.conferences}/>
           </div>
-      } />
+        }/>
 
-      <Route path="/conference/:id" render={(routeProps) => {
-        const id = routeProps.match.params
-        if (this.state.conferences.length) {
-          const conference = this.state.conferences.find(c => c.id == id )
-          return <ConferenceShow {...conference} />
-        } else {
-          return null
+        <Route exact path="/conferences/new" component={ConferenceNew} />
+
+        <Route path="/conference/:id" render={(routeProps) => {
+          const id = routeProps.match.params
+          if (this.state.conferences.length) {
+            const conference = this.state.conferences.find(c => c.id == id)
+            return <ConferenceShow {...conference} />
+          } else {
+            return null
+          }
         }
-      }
-      } />
+        }/>
       </div>
     );
   }
