@@ -5,5 +5,9 @@ const getStates = () => {
     .then((response) => response.json());
 };
 
+const getCities = (state) => {
+  return fetch(BASE_URL + `/locations/states/${state}/cities`)
+    .then((response) => response.json());
+};
 
-export { getStates };
+export { getStates, getCities };
