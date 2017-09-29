@@ -46,17 +46,17 @@ class ConferencesContainer extends React.Component {
           </div>
         }/>
 
-        <Route exact path="/conferences/new" component={ConferenceNew} />
+      <Route exact path="/conferences/new" component={ConferenceNew} />
 
-      <Route path="/conferences/:id" render={(routeProps) => {
-        const id = routeProps.match.params.id
-        if (this.state.conferences.length) {
-          const conference = this.state.conferences.find(c => c.id == id )
+      <Route exact path="/conferences/:id" render={(routeProps) => {
+        const id = parseInt(routeProps.match.params.id)
+        if (this.state.conferences.length && !isNaN(id)) {
+          const conference = this.state.conferences.find(c => c.id === id )
           return <ConferenceShow {...conference} />
         } else {
           return null
         }
-        }/>
+       } }/>
       </div>
     );
   }

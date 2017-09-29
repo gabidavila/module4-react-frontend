@@ -4,6 +4,7 @@ import React from 'react'
  const ConferenceShow = (props) => {
    const imageStyle = {marginLeft: 'auto', marginRight: 'auto', width: '75%'}
    const divStyle = {display: 'grid', justifyContent: 'center', alignItems: 'center'}
+   console.log(props)
   return (
     <div style={divStyle}>
       <h1>{props.name}</h1>
