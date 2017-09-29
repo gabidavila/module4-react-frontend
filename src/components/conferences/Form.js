@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import LocationFilter from "../locations/Filter";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -21,16 +21,20 @@ class ConferenceForm extends React.Component {
       url: "",
       image: "",
       city: null,
+      address: "",
       state: ""
     }
   }
 
   handleStartDateChange = (moment) => {
-    this.handleDateChange(moment, "startDate");
+    this.setState({
+      dates: Object.assign({}, this.state.dates, { endDate: moment })
+    }, () => this.handleDateChange(moment, "startDate"));
   };
 
   handleEndDateChange = (moment) => {
     this.handleDateChange(moment, "endDate");
+
   };
 
   handleDateChange = (moment, dateType) => {
@@ -46,19 +50,21 @@ class ConferenceForm extends React.Component {
     this.setState({ [fieldName]: fieldValue });
   };
 
-  handleLocationChange = (information) => {
-    console.log(information);
+  handleLocationChange = () => {
+  };
+
+  handleSubmit = () => {
+    this.props.onSubmitForm(this.state);
   };
 
   render() {
-    console.log(this.state);
     return (
-      <Form onChange={this.handleChange}>
-        <Form.Field control="input" name="name" label="Name" value={this.state.name}/>
-        <Form.Field control="textarea" name="description" label="Description" value={this.state.description}/>
-        <Form.Field control="input" name="url" label="URL" value={this.state.url}/>
+      <Form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+        <Form.Field control="input" required name="name" label="Name" value={this.state.name}/>
+        <Form.Field control="textarea" required name="description" label="Description" value={this.state.description}/>
+        <Form.Field control="input" required name="url" label="URL" value={this.state.url}/>
         <Form.Field control="input" name="image" label="Image" value={this.state.image}/>
-        <div className="field">
+        <div className="required field">
           <label>Start Date</label>
           <DatePicker
             selected={this.state.dates.startDate}
@@ -67,7 +73,7 @@ class ConferenceForm extends React.Component {
             maxDate={this.state.dates.endDateCalendar}
           />
         </div>
-        <div className="field">
+        <div className="required field">
           <label>End Date</label>
           <DatePicker
             selected={this.state.dates.endDate}
@@ -76,9 +82,9 @@ class ConferenceForm extends React.Component {
             maxDate={this.state.dates.endDateCalendar}
           />
         </div>
-        <Form.Field control="input" name="address" label="Address" value={this.state.address}/>
-        <LocationFilter onFilterChange={this.handleLocationChange}/>
-        <Button type="Submit" style={{ marginTop: "10px" }} fluid primary>Submit</Button>
+        <Form.Field control="input" required name="address" label="Address" value={this.state.address}/>
+        <LocationFilter onFilterChange={this.handleLocationChange} required={true}/>
+        <input type="submit" style={{ marginTop: "10px" }} value="Submit" className="fluid ui primary button"/>
       </Form>
     );
   }

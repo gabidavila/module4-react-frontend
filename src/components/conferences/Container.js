@@ -19,7 +19,6 @@ class ConferencesContainer extends React.Component {
   }
 
   fetchConferences = (filters) => {
-    console.log("Hi");
     getConferences(filters)
       .then((conferences) => this.setState({
         conferences
@@ -31,11 +30,10 @@ class ConferencesContainer extends React.Component {
   };
 
   render() {
-    console.log(this.state.conferences);
     return(
       <div>
         <Form>
-          <LocationFilter onFilterChange={this.handleChange} />
+          <LocationFilter required={false} onFilterChange={this.handleChange} />
         </Form>
         <ConferencesList conferences={this.state.conferences} />
       </div>

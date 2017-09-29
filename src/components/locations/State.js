@@ -5,7 +5,7 @@ const LocationState = (props) => {
   let stateList = [<option key={-1} value="">Select...</option>];
   stateList = [...stateList, props.states.map((state, index) => <option key={index} value={state}>{state}</option>)];
   return (
-    <Form.Field name="state" control="select" label="State" onChange={props.onStateChange}>
+    <Form.Field name="state" required={props.required} control="select" label="State" onChange={props.onStateChange}>
       {stateList}
     </Form.Field>
   );
