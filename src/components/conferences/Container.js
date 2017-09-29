@@ -46,8 +46,8 @@ class ConferencesContainer extends React.Component {
           </div>
       } />
 
-      <Route path="/conference/:id" render={(routeProps) => {
-        const id = routeProps.match.params
+      <Route path="/conferences/:id" render={(routeProps) => {
+        const id = routeProps.match.params.id
         if (this.state.conferences.length) {
           const conference = this.state.conferences.find(c => c.id == id )
           return <ConferenceShow {...conference} />

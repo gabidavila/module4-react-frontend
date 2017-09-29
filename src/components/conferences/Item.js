@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ConferenceItem = (props) => {
   const imageStyle = { maxWidth: '100%' }
-  const divStyle={ backgroundColor: '#ccc' }
+  const divStyle={ display: 'grid', justifyContent: 'center', backgroundColor: '#ccc', paddingBottom: '20px' }
   console.log(props)
   return (
 
