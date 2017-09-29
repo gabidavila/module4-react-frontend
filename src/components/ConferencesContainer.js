@@ -10,20 +10,29 @@ class ConferencesContainer extends React.Component {
   };
 
   componentDidMount() {
-    getConferences({
-      currentState: this.state.currentState,
-      currentCity: this.state.currentCity
-    })
+    this.fetchConferences({
+      state: this.state.currentState,
+      city_id: this.state.currentCity
+    });
+  }
+
+  fetchConferences = (filters) => {
+    console.log("Hi");
+    getConferences(filters)
       .then((conferences) => this.setState({
         conferences
       }));
-  }
+  };
+
+  handleChange = (filters) => {
+    this.fetchConferences(filters);
+  };
 
   render() {
     console.log(this.state.conferences);
     return(
       <div>
-        <LocationFilter />
+        <LocationFilter onFilterChange={this.handleChange} />
       </div>
     );
   }
