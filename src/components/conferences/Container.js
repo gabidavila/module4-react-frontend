@@ -2,6 +2,7 @@ import React from "react";
 import LocationFilter from '../locations/Filter';
 import ConferencesList from './List'
 import { getConferences } from "../../adapters/conferences";
+import { Form } from 'semantic-ui-react';
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -33,7 +34,9 @@ class ConferencesContainer extends React.Component {
     console.log(this.state.conferences);
     return(
       <div>
-        <LocationFilter onFilterChange={this.handleChange} />
+        <Form>
+          <LocationFilter onFilterChange={this.handleChange} />
+        </Form>
         <ConferencesList conferences={this.state.conferences} />
       </div>
     );

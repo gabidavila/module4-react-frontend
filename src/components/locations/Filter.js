@@ -44,10 +44,8 @@ class LocationFilter extends React.Component {
   render() {
     return(
       <div>
-        <Form>
-          <LocationState states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
-          <LocationCity locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
-        </Form>
+        <LocationState states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
+        <LocationCity locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
       </div>
     );
   }
