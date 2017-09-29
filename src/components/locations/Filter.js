@@ -25,8 +25,10 @@ class LocationFilter extends React.Component {
       currentState: event.target.value
     }, () => {
       this.onSelectChange();
+      if(this.state.currentState != "") {
       getCities(this.state.currentState)
       .then((cities) => this.setState({ cities }));
+    }
     });
   }
 

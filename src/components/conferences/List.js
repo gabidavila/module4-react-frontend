@@ -1,12 +1,26 @@
 import React from 'react'
 import ConferenceItem from './Item'
+import { Card } from 'semantic-ui-react';
 
-const ConferencesList = (props) => {
-  const conferences = props.conferences.map(conference => <ConferenceItem />)
 
-  return(
-    <p>hi</p>
-  )
+class ConferencesList extends React.Component {
+  state = {
+
+  }
+
+  showConference = (id) => {
+      
+    }
+
+ render () {
+   const conferences = this.props.conferences.map((conference, i) => <ConferenceItem key={i} id={conference.id} showConference={this.showConference} image_uri={conference.image_uri} name={conference.name} description={conference.description}/>)
+   const styling = {display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: 'minmax(200px, auto)'}
+   return (
+     <div style={styling}>
+       {conferences}
+     </div>
+   )
+ }
 }
 
 export default ConferencesList

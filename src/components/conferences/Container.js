@@ -1,7 +1,9 @@
 import React from "react";
+import { Route } from 'react-router-dom';
 import LocationFilter from '../locations/Filter';
-import ConferencesList from './List'
+import ConferencesList from './List';
 import { getConferences } from "../../adapters/conferences";
+import ConferenceShow from './Show';
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -29,12 +31,29 @@ class ConferencesContainer extends React.Component {
     this.fetchConferences(filters);
   };
 
+
+
   render() {
-    console.log(this.state.conferences);
+    console.log("conferences", this.state.conferences);
     return(
       <div>
-        <LocationFilter onFilterChange={this.handleChange} />
-        <ConferencesList conferences={this.state.conferences} />
+      <Route exact path="/conferences" render={(props) =>
+          <div>
+            <LocationFilter {...props} onFilterChange={this.handleChange} />
+            <ConferencesList {...props} conferences={this.state.conferences} />
+          </div>
+      } />
+
+      <Route path="/conference/:id" render={(routeProps) => {
+        const id = routeProps.match.params
+        if (this.state.conferences.length) {
+          const conference = this.state.conferences.find(c => c.id == id )
+          return <ConferenceShow {...conference} />
+        } else {
+          return null
+        }
+      }
+      } />
       </div>
     );
   }
