@@ -37,7 +37,6 @@ class LocationFilter extends React.Component {
   }
 
   onSelectChange() {
-    console.log("Hi too");
     this.props.onFilterChange({city_id: this.state.currentCity, state: this.state.currentState });
   }
 
