@@ -53,7 +53,8 @@ class ConferenceForm extends React.Component {
   handleLocationChange = () => {
   };
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     this.props.onSubmitForm(this.state);
   };
 
