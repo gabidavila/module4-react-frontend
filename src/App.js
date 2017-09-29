@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ConferencesContainer from './components/ConferencesContainer';
+import ConferencesContainer from './components/conferences/Container';
 
 class App extends Component {
   render() {

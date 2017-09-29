@@ -1,6 +1,7 @@
 import React from "react";
-import LocationFilter from './locations/Filter';
-import { getConferences } from "../adapters/conferences";
+import LocationFilter from '../locations/Filter';
+import ConferencesList from './List'
+import { getConferences } from "../../adapters/conferences";
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -33,6 +34,7 @@ class ConferencesContainer extends React.Component {
     return(
       <div>
         <LocationFilter onFilterChange={this.handleChange} />
+        <ConferencesList conferences={this.state.conferences} />
       </div>
     );
   }
