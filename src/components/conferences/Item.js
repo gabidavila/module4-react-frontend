@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const ConferenceItem = (props) => {
   const imageStyle = { maxWidth: '100%' }
   const divStyle={ display: 'grid', justifyContent: 'center', backgroundColor: '#ccc', paddingBottom: '20px' }
-  console.log(props)
   return (
 
     <div style={ divStyle } onClick={ () => props.showConference(props.id) }>

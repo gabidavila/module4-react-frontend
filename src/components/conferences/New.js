@@ -6,8 +6,6 @@ class ConferenceNew extends React.Component {
   handleSubmit = (formData) => {
     const bodyData = formConferenceParser(formData);
     createConference(bodyData).then();
-
-    console.log(bodyData);
   }
 
   render() {

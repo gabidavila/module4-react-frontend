@@ -34,7 +34,6 @@ class ConferencesContainer extends React.Component {
 
 
   render() {
-    console.log("conferences", this.state.conferences);
     return (
       <div>
         <Route exact path="/conferences" render={(props) =>
