@@ -40,7 +40,7 @@ class ConferencesContainer extends React.Component {
         <Route exact path="/conferences" render={(props) =>
           <div>
             <Form>
-              <LocationFilter required={false} {...props} onFilterChange={this.handleChange}/>
+              <LocationFilter required={false} {...props} conferenceOnly={true} onFilterChange={this.handleChange}/>
             </Form>
             <MonthList {...props} conferences={this.state.conferences}/>
           </div>

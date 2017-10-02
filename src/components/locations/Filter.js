@@ -15,7 +15,7 @@ class LocationFilter extends React.Component {
   };
 
   componentDidMount() {
-    getStates().then(
+    getStates(this.props.conferenceOnly).then(
       (states) => this.setState({ states, currentCity: "" })
     );
   }
@@ -26,7 +26,7 @@ class LocationFilter extends React.Component {
     }, () => {
       this.onSelectChange();
       if(this.state.currentState != "") {
-      getCities(this.state.currentState)
+      getCities(this.state.currentState, this.props.conferenceOnly)
       .then((cities) => this.setState({ cities }));
     }
     });
