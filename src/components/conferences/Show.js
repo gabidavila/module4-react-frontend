@@ -21,7 +21,7 @@ import { Button } from 'semantic-ui-react'
     return (
       <div style={divStyle}>
         <h1>{this.props.name}</h1>
-        <img style={imageStyle} href={this.props.url} src={this.props.image_uri}/>
+        <img style={imageStyle} alt={this.props.name} href={this.props.url} src={this.props.image_uri}/>
         <div style={infoStyle}>
           <div style={descStyle}>Description: {this.props.description}</div>
           <div>From: {this.props.start_date} - {this.props.end_date}</div>

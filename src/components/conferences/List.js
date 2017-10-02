@@ -1,6 +1,5 @@
 import React from 'react'
 import ConferenceItem from './Item'
-import { Card } from 'semantic-ui-react';
 
 
 class ConferencesList extends React.Component {

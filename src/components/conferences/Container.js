@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 import LocationFilter from '../locations/Filter';
-import ConferencesList from './List';
 import { getConferences } from "../../adapters/conferences";
 import ConferenceShow from './Show';
 import { Form } from 'semantic-ui-react';

@@ -10,13 +10,13 @@ const MonthList = (props) => {
 
     let unique_dates = [...(new Set (first_dates))]
 
-    const list = unique_dates.map(d => {
+    const list = unique_dates.map(( d, i ) => {
       let year = d.split(' ')[0]
       let compMonth = d.split(' ')[1]
       let month = months[parseInt(compMonth)-1]
       let conferences = props.conferences.filter(c => (c.year == year && c.month == compMonth))
       return (
-        <div>
+        <div key = {i}>
         <h1>{year} {month}</h1>
         <ConferencesList {...props} conferences={conferences} />
         </div>
