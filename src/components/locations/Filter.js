@@ -15,7 +15,7 @@ class LocationFilter extends React.Component {
   };
 
   componentDidMount() {
-    getStates().then(
+    getStates(this.props.conferenceOnly).then(
       (states) => this.setState({ states, currentCity: "" })
     );
   }
@@ -43,6 +43,7 @@ class LocationFilter extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return(
       <div>
         <LocationState required={this.props.required} states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
