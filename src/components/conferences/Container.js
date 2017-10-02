@@ -6,6 +6,7 @@ import { getConferences } from "../../adapters/conferences";
 import ConferenceShow from './Show';
 import { Form } from 'semantic-ui-react';
 import ConferenceNew from "./New";
+import MonthList from './MonthList'
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -41,7 +42,7 @@ class ConferencesContainer extends React.Component {
             <Form>
               <LocationFilter required={false} {...props} onFilterChange={this.handleChange}/>
             </Form>
-            <ConferencesList {...props} conferences={this.state.conferences}/>
+            <MonthList {...props} conferences={this.state.conferences}/>
           </div>
         }/>
 
@@ -56,6 +57,7 @@ class ConferencesContainer extends React.Component {
           return null
         }
        } }/>
+
       </div>
     );
   }
