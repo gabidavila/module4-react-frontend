@@ -1,8 +1,6 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 
-
-
  class ConferenceShow extends React.Component {
    state = {
      talksShown: false
