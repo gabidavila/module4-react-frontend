@@ -16,7 +16,6 @@ class TalkShow extends React.Component {
   render () {
     console.log("theprops", this.state.talk)
     const styling = {textAlign: 'center'}
-  //  console.log(this.props.talk)
     return(
       <div style={styling}>
         <h1>{this.state.talk.title}</h1><br/>
