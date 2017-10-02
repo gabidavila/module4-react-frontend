@@ -22,7 +22,7 @@ const MonthList = (props) => {
         </div>
       )
     })
-
+    console.log(props.conferences[0])
     return (
       <div>
       {list}
