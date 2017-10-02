@@ -45,7 +45,9 @@ class ConferencesContainer extends React.Component {
           </div>
         }/>
 
-      <Route exact path="/conferences/new" component={ConferenceNew} />
+      <Route exact path="/conferences/new" render={(routeProps) => {
+        return <ConferenceNew {...routeProps} />
+      }} />
 
       <Route exact path="/conferences/:id" render={(routeProps) => {
         const id = parseInt(routeProps.match.params.id)

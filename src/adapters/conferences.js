@@ -29,6 +29,6 @@ const createConference = (conferenceInformation) => {
       "Accept": "application/json"
     }
   };
-  return fetch(BASE_URL + "/conferences", options);
+  return fetch(BASE_URL + "/conferences", options).then((response) => response.json());
 }
 export { getConferences, formConferenceParser, createConference };
