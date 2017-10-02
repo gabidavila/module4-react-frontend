@@ -2,16 +2,19 @@ import React from "react";
 import { Route } from 'react-router-dom';
 import LocationFilter from '../locations/Filter';
 import { getConferences } from "../../adapters/conferences";
+import { getTalk } from "../../adapters/talks";
 import ConferenceShow from './Show';
 import { Form } from 'semantic-ui-react';
 import ConferenceNew from "./New";
 import MonthList from './MonthList'
+import TalkShow from './TalkShow'
 
 class ConferencesContainer extends React.Component {
   state = {
     conferences: [],
     currentState: "",
-    currentCity: ""
+    currentCity: "",
+    talk: ""
   };
 
   componentDidMount() {
@@ -32,6 +35,12 @@ class ConferencesContainer extends React.Component {
     this.fetchConferences(filters);
   };
 
+  fetchTalk = (path) => {
+    getTalk(path)
+    .then((talk) => this.setState({
+      talk: talk
+    }))
+  }
 
   render() {
     return (
@@ -68,6 +77,10 @@ class ConferencesContainer extends React.Component {
           return null
         }
        } }/>
+
+     <Route exact path="/conferences/:conf_id/talks/:id" render={(routeProps) => {
+        return <TalkShow path={routeProps.location.pathname}/>
+       }} />
 
       </div>
     );
