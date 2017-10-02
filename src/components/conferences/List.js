@@ -5,7 +5,6 @@ import { Card } from 'semantic-ui-react';
 
 class ConferencesList extends React.Component {
   state = {
-
   }
 
   showConference = (id) => {

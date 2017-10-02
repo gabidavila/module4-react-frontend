@@ -9,7 +9,6 @@ import { Button } from 'semantic-ui-react'
    }
 
    render () {
-     console.log(this.props)
      const talks = this.props.talks.map((t, i) => {
        return (
          <div>{t.title} - {t.description}</div>

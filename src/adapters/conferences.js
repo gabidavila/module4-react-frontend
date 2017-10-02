@@ -23,7 +23,7 @@ const formConferenceParser = (formData) => {
 const createConference = (conferenceInformation) => {
   const options = {
     method: "POST",
-    body: conferenceInformation,
+    body: JSON.stringify(conferenceInformation),
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json"
