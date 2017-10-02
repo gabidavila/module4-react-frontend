@@ -1,5 +1,5 @@
 import React from 'react'
-import ConferencesList from './List'
+import ConferenceList from './List'
 // import Moment from 'react-moment'
 // import moment from 'moment'
 
@@ -10,22 +10,24 @@ const MonthList = (props) => {
 
     let unique_dates = [...(new Set (first_dates))]
 
-    const list = unique_dates.map(( d, i ) => {
+    const conferenceList = unique_dates.map(( d, i ) => {
       let year = d.split(' ')[0]
       let compMonth = d.split(' ')[1]
       let month = months[parseInt(compMonth)-1]
       let conferences = props.conferences.filter(c => (c.year == year && c.month == compMonth))
       return (
         <div key = {i}>
-        <h1>{year} {month}</h1>
-        <ConferencesList {...props} conferences={conferences} />
+          <h1>{year} {month}</h1>
+          <ConferenceList {...props} talks={props.talks} conferences={conferences} />
         </div>
       )
     })
-    console.log(props.conferences[0])
+
+
+
     return (
       <div>
-      {list}
+      {conferenceList}
       </div>
     )
 }
