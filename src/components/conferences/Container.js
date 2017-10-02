@@ -37,7 +37,6 @@ class ConferencesContainer extends React.Component {
     return (
       <div>
 
-
         <Route exact path="/conferences" render={(props) =>
           <div>
             <Form>

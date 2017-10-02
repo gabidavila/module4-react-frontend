@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Card, Button } from 'semantic-ui-react'
 
  class ConferenceShow extends React.Component {
    state = {
@@ -7,12 +8,26 @@ import { Button } from 'semantic-ui-react'
    }
 
    render () {
+
      const talks = this.props.talks.map((t, i) => {
        return (
-         <div>{t.title} - {t.description}</div>
+         <Link to='/conferences'>
+           <Card>
+             <Card.Content>
+               <Card.Header>
+                 {t.title}
+               </Card.Header>
+               <Card.Description>
+                 {[t.description.split('').slice(0, 200).join(''), "..."]}
+               </Card.Description>
+             </Card.Content>
+           </Card>
+         </Link>
+
        )
      })
      const imageStyle = {marginLeft: 'auto', marginRight: 'auto', width: '75%'}
+     const talksContainer = {display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: 'minmax(200px, auto)', gridGap: '2em', padding: '20px'}
      const divStyle = {display: 'grid', justifyContent: 'center', alignItems: 'center'}
      const infoStyle = {marginTop: '10px', marginLeft:'auto', marginRight: 'auto', gridColumnGap: '4em',
         gridRowGap: '2em', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridAutoRows: 'minmax(20px, auto)',
@@ -30,7 +45,9 @@ import { Button } from 'semantic-ui-react'
         </div>
         <br/>
         <Button onClick={() => this.setState({talksShown: true})}>See Talks</Button>
-        {this.state.talksShown ? talks : null}
+        <div style={talksContainer}>
+          {this.state.talksShown ? talks : null}
+        </div>
       </div>
 
     )
