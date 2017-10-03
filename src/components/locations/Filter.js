@@ -44,9 +44,12 @@ class LocationFilter extends React.Component {
 
   render() {
     return(
-      <div>
-        <LocationState required={this.props.required} states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
-        <LocationCity required={this.props.required} locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
+      <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr', alignItems: 'center', gridGap: '3em', padding: '40px', backgroundColor: '#6e6e6e', marginBottom: '20px'}}>
+        <h1>Find a Conference ></h1>
+        <div>
+          <LocationState required={this.props.required} states={this.state.states} currentState={this.state.currentState} onStateChange={this.handleStateChange}/>
+          <LocationCity required={this.props.required} locations={this.state.cities} currentCity={this.state.currentCity} onCityChange={this.handleCityChange} />
+        </div>
       </div>
     );
   }

@@ -8,9 +8,7 @@ import { Card, Button } from 'semantic-ui-react'
    }
 
    render () {
-     console.log(this.props)
      const talks = this.props.talks.map((t, i) => {
-       console.log(t)
        const link = '/conferences/' + this.props.id + '/talks/' + t.id
        return (
          <Link to={link}>

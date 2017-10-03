@@ -46,15 +46,6 @@ class ConferencesContainer extends React.Component {
           </div>
         }/>
 
-      <Route exact path="/talks" render={(props) =>
-          <div>
-            <Form>
-              <LocationFilter required={false} {...props} onFilterChange={this.handleChange}/>
-            </Form>
-            <MonthList {...props} talks={true} conferences={this.state.conferences}/>
-          </div>
-        }/>
-
       <Route exact path="/conferences/new" render={(routeProps) => {
         return <ConferenceNew {...routeProps} />
       }} />

@@ -6,4 +6,9 @@ const getTalk = (path) => {
     .then((response) => response.json());
 }
 
-export { getTalk };
+const getTalks = () => {
+  return fetch(BASE_URL + '/talks')
+  .then((response) => response.json())
+}
+
+export { getTalk, getTalks };
