@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 class Nav extends React.Component {
   render() {
-    const styling = {display: 'grid', gridTemplateColumns: ' 3fr, 1fr, 1fr, 1fr'}
     return (
       <div className="ui secondary menu">
         <h1 className="item Left">Has Many Talks</h1>

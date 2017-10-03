@@ -6,7 +6,7 @@ import ConferenceShow from './Show';
 import { Form } from 'semantic-ui-react';
 import ConferenceNew from "./New";
 import MonthList from './MonthList'
-import TalkShow from './TalkShow'
+import TalkShow from '../talks/TalkShow'
 
 class ConferencesContainer extends React.Component {
   state = {
@@ -51,7 +51,7 @@ class ConferencesContainer extends React.Component {
       }} />
 
       <Route exact path="/conferences/:id" render={(routeProps) => {
-        const id = parseInt(routeProps.match.params.id)
+        const id = parseInt(routeProps.match.params.id, 10)
         if (this.state.conferences.length && !isNaN(id)) {
           const conference = this.state.conferences.find(c => c.id === id )
           return <ConferenceShow {...conference} />

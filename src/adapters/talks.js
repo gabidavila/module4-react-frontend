@@ -6,9 +6,14 @@ const getTalk = (path) => {
     .then((response) => response.json());
 }
 
-const getTalks = () => {
-  return fetch(BASE_URL + '/talks')
+const getTalks = (topic) => {
+  return fetch(BASE_URL + '/talks?' + queryString.stringify({topic}))
   .then((response) => response.json())
 }
 
-export { getTalk, getTalks };
+const getTopics = () => {
+  return fetch(BASE_URL + '/talks/topics')
+  .then((response) => response.json())
+}
+
+export { getTalk, getTalks, getTopics };

@@ -1,8 +1,6 @@
 import React from 'react';
-// import City from './City';
 import LocationState from './State';
 import LocationCity from './City';
-import { Form } from 'semantic-ui-react';
 import { getStates, getCities } from '../../adapters/locations';
 
 class LocationFilter extends React.Component {
