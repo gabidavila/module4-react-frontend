@@ -22,11 +22,9 @@ class TopicFilter extends React.Component {
 
   render() {
     return(
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr', alignItems: 'center', gridGap: '3em', padding: '40px', backgroundColor: '#6e6e6e', marginBottom: '20px'}}>
-        <h1>Select a Topic ></h1>
-        <div>
-          <Topics required={this.props.required} topics={this.state.topics} currentTopic={this.state.currentTopic} onTopicChange={this.props.onFilterChange}/>
-        </div>
+      <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr', alignItems: 'center', gridGap: '3em', padding: '40px', backgroundColor: '#362386', marginBottom: '20px', width: '100%'}}>
+        <h1 style={{color: '#fff', marginLeft: '0'}}>Select a Topic ></h1>
+        <Topics required={this.props.required} topics={this.state.topics} currentTopic={this.state.currentTopic} onTopicChange={this.props.onFilterChange}/>
       </div>
     );
   }

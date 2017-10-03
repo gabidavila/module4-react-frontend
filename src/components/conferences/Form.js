@@ -60,7 +60,7 @@ class ConferenceForm extends React.Component {
 
   render() {
     return (
-      <Form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+      <Form style={{padding: '100px'}} onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <Form.Field control="input" required name="name" label="Name" value={this.state.name}/>
         <Form.Field control="textarea" required name="description" label="Description" value={this.state.description}/>
         <Form.Field control="input" required name="url" label="URL" value={this.state.url}/>

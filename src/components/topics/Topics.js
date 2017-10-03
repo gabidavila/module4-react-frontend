@@ -7,9 +7,11 @@ const Topics = (props) => {
     topicList = [...topicList, props.topics.map((topic, index) => <option key={index} value={topic}>{topic}</option>)];
   }
   return (
-    <Form.Field name="state" required={props.required} control="select" label="Topics" onChange={props.onTopicChange}>
-      {topicList}
-    </Form.Field>
+    <Form>
+      <Form.Field id={'makeItWhite'} name="state" required={props.required} control="select" label="Topics" onChange={props.onTopicChange}>
+        {topicList}
+      </Form.Field>
+    </Form>
   );
 };
 

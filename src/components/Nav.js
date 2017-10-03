@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom'
 class Nav extends React.Component {
   render() {
     return (
-      <div className="ui secondary menu">
-        <h1 className="item Left">Has Many Talks</h1>
-        <NavLink activeClassName="active" className="item right" to="/conferences">Conferences</NavLink>
-        <NavLink activeClassName="active" className="item right" to="/talks">Talks</NavLink>
-        <NavLink activeClassName="active" className="item right" to="/conferences/new">New</NavLink>
-        <NavLink className="item right" to="/">Logout</NavLink>
+      <div style={{borderBottom: '6px solid #0892dd'}}className="ui secondary menu">
+        <h1 style={{color: '#008080', fontFamily: 'Shadows Into Light', fontSize: '3em'}} className="item Left">Has Many Talks</h1>
+        <NavLink activeClassName="active" className="item large right" to="/conferences">Conferences</NavLink>
+        <NavLink activeClassName="active" className="item large right" to="/talks">Talks</NavLink>
+        <NavLink activeClassName="active" className="item large right" to="/conferences/new">New</NavLink>
+        <NavLink style={{marginRight: '20px'}} className="item right" to="/">Logout</NavLink>
       </div>
     )
   }

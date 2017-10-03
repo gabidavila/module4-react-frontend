@@ -17,7 +17,7 @@ const MonthList = (props) => {
       let conferences = props.conferences.filter(c => (c.year === parseInt(year,10) && c.month === parseInt(compMonth,10)))
       return (
         <div key = {i}>
-          <h1>{year} {month}</h1>
+          <h1 style={{marginLeft: '40px'}}>{year} {month}</h1>
           <ConferenceList {...props} talks={props.talks} conferences={conferences} />
         </div>
       )
