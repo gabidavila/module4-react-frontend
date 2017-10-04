@@ -8,8 +8,7 @@ class Nav extends React.Component {
         <h1 style={{color: '#008080', fontFamily: 'Shadows Into Light', fontSize: '3em'}} className="item Left">Has Many Talks</h1>
         <NavLink activeClassName="active" className="item large right" to="/conferences">Conferences</NavLink>
         <NavLink activeClassName="active" className="item large right" to="/talks">Talks</NavLink>
-        <NavLink activeClassName="active" className="item large right" to="/conferences/new">New</NavLink>
-        <NavLink style={{marginRight: '20px'}} className="item right" to="/">Logout</NavLink>
+        <NavLink activeClassName="active" className="item large right" style={{marginRight: '20px'}} to="/conferences/new">New</NavLink>
       </div>
     )
   }
