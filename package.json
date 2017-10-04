@@ -12,7 +12,8 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "semantic-ui-react": "^0.74.2"
+    "semantic-ui-react": "^0.74.2",
+    "snapsvg-cjs": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
